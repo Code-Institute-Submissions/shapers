@@ -3,13 +3,14 @@ from uuid import uuid4
 from profile.models import UserProfile
 from store.models import Product
 from django.db.models import Sum
+from django_countries.fields import CountryField
 
 
 class Order(models.Model):
     """Basic Order model used for payment & shipping"""
 
     order_number = models.UUIDField(default=uuid4, editable=False)
-    date = models.DateField(auto_now_add=True, editable=False)
+    date = models.DateTimeField(auto_now_add=True, editable=False)
     user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL,
                                      null=True, blank=True,
                                      related_name='orders')
@@ -21,7 +22,7 @@ class Order(models.Model):
     town_or_city = models.CharField(max_length=40, null=False, blank=False)
     postcode = models.CharField(max_length=20, null=True, blank=True)
     county = models.CharField(max_length=40, null=True, blank=True)
-    country = models.CharField(max_length=60, null=False, blank=False)
+    country = CountryField(blank_label='Country *', null=False, blank=False)
     order_total = models.DecimalField(max_digits=10, decimal_places=2,
                                       null=False, blank=False, default=0)
 

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block page_title %} - Order confirmation{% endblock %}
+
+{% block content %}
+  <header class="container mt-3">
+    <h1 class="title">Order confirmation</h1>
+  </header>
+
+  <main class="container my-3">
+    <p>Order : {{ order }}<br>
+      Total charged: {{ order.order_total }} €
+    </p>
+    <p>Your order was successfully placed !</p>
+    {% comment %}Add email confirmation{% endcomment %}
+{#    <p>You should be receiving an email shortly with your order details</p>#}
+  </main>
+
+{% endblock %}

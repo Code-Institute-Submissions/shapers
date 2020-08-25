@@ -1,7 +1,67 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block page_title %} - Checkout{% endblock %}
 
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
+
 {% block content %}
-  <h1>Checkout</h1>
+  <header class="container mt-3">
+    <h1 class="title">Checkout</h1>
+  </header>
+
+  <main class="container mb-3">
+
+    <section class="py-2">
+      <h2>Shipping & Billing Details</h2>
+
+      <form id="payment-form" method="POST" action="{% url 'checkout' %}">
+        {% csrf_token %}
+
+        {# Shipping Address #}
+        <fieldset class="my-4">
+          <legend class="fieldset-label small text-muted pl-3">Shipping</legend>
+          {% if order_form.has_error %}
+            {% for error in order_form.errors %}
+              <p class="form-field-error">{{ error }}</p>
+            {% endfor %}
+          {% endif %}
+
+          {% for field in order_form %}
+            <div class="input-group pt-2">
+              {{ field }}
+            </div>
+            {% if field.errors %}
+              <p class="form-field-error">{{ field.errors.as_text }}</p>
+            {% endif %}
+          {% endfor %}
+        </fieldset>
+
+        {# Stripe Payment #}
+        <fieldset class="my-4">
+          <legend class="fieldset-label small text-muted pl-3">Billing</legend>
+
+          <div id="card-element" class="col-12 col-md-6 mt-2"></div>
+
+          <div class="form-field-error" id="card-errors" role="alert"></div>
+
+          <input type="hidden" value="{{ scsk }}" name="scsk">
+        </fieldset>
+
+        <div class="my-3">
+          <button class="btn btn-dark rounded-0 mx-auto mx-md-0" type="submit">Secure Payment</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+{% endblock %}
+
+{% block postload_js %}
+  {{ block.super }}
+  {{ spk|json_script:"spk" }}
+  {{ scsk|json_script:"scsk" }}
+  <script src="{% static 'checkout/js/checkout.js' %}"></script>
 {% endblock %}
