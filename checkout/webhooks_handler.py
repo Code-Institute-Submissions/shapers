@@ -4,6 +4,7 @@ from profile.models import UserProfile
 from store.models import Product
 import time
 import json
+from datetime import datetime, timedelta
 
 
 class StripeWhHandler:
@@ -31,21 +32,38 @@ class StripeWhHandler:
 
         user_profile = UserProfile.objects.get(user__username=username)
 
+        # If a given user has placed an order within the following 5s
+        # I assume it is the one.
+        # Order form submission is triggered after Stripe Payment succeeded
+        time_threshold = datetime.now() - timedelta(seconds=5)
         order_exists = False
         attempt = 1
         while attempt <= 5:
-            # If a given user has placed an order within the following 5s
-            # I assume it is the one.
-            # Order form submission is triggered after Stripe Payment succeeded
             try:
-                order = Order.objects.filter(
+                order = Order.objects.get(
                     user_profile=user_profile,
-                    date__gte=payment_intent.created)
+                    date__gte=time_threshold)
                 order_exists = True
                 break
-            except Exception as e:
+
+            except Order.DoesNotExist:
                 attempt += 1
                 time.sleep(1)
+
+            except Order.MultipleObjectsReturned as e:
+                # Should probably do something about that kind of situation !!
+                return HttpResponse(
+                    content=f'Error looking for order in the database: '
+                            f'{event["type"]}; '
+                            f'ERROR: {e}',
+                    status=500)
+
+            except Exception as e:
+                return HttpResponse(
+                    content=f'Error looking for order in the database: '
+                            f'{event["type"]}; '
+                            f'ERROR: {e}',
+                    status=500)
 
         if order_exists:
             return HttpResponse(
@@ -92,7 +110,7 @@ class StripeWhHandler:
                     content=f'Error saving the order with WH handler: '
                             f'{event["type"]}; '
                             f'ERROR: {e}',
-                    status=200)
+                    status=500)
 
     def handle_payment_intent_failed(self, event):
         """Handle Stripe payment intent failures"""
