@@ -52,6 +52,7 @@ form.addEventListener('submit', function (ev) {
     // prevent multiple submissions
     card.update({'disabled': true});
     $('#submit-button').attr('disabled', true);
+    $('#fullscreen-overlay').fadeToggle(200);
 
     const csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
     const postUrl = '/checkout/add_checkout_metadata/';
@@ -91,6 +92,7 @@ form.addEventListener('submit', function (ev) {
                 // enable form modification on errors
                 card.update({'disabled': false});
                 $('#submit-button').attr('disabled', false);
+                $('#fullscreen-overlay').fadeToggle(200);
 
             } else {
                 if (result.paymentIntent.status === 'succeeded') {

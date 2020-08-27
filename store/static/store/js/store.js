@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
 
     $('#sort-selector').change(function () {
         var selector = $(this);
@@ -19,4 +19,25 @@ $(document).ready(function() {
             window.location.replace(currentUrl);
         }
     });
+
+    // Product details quantity input buttons
+    $('#increment-qty').click(function () {
+        var productQty = $('#product-qty');
+        var currentValue = parseInt(productQty.val());
+        if (currentValue < 99) {
+            productQty.val(currentValue + 1);
+        } else {
+
+        }
+        handleEnableDisable($('#increment-qty'));
+    });
+    $('#decrement-qty').click(function () {
+        var productQty = $('#product-qty');
+        var currentValue = parseInt(productQty.val());
+        if (currentValue > 1) {
+            productQty.val(currentValue - 1);
+        }
+        handleEnableDisable($('#decrement-qty'));
+    });
+
 })

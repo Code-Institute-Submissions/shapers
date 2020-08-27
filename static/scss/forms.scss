@@ -10,3 +10,12 @@
 .dropdown-item.active-selection {
   background-color: $mid-gray;
 }
+
+// override default browsers number input fields
+.product-form {
+  input[type="number"] {
+    margin: 0;
+    -webkit-appearance: textfield;
+       -moz-appearance: textfield;
+  }
+}

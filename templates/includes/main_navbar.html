@@ -10,13 +10,14 @@
       <li class="nav-item ml-2 dropdown">
         <a id="signinDropDownLink" class="dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true"
            aria-expanded="false">
-          {% if request.user.is_authenticated %}My Account
+          {% if request.user.is_authenticated %}Your Account
           {% else %}Account
           {% endif %}
         </a>
         <div id="signin-dropdown" class="dropdown-menu rounded-0" aria-labelledby="signinDropDownLink">
           {% if request.user.is_authenticated %}
-            <a class="dropdown-item" href="{% url 'profile' %}">My Profile</a>
+            <a class="dropdown-item" href="{% url 'profile' %}">Your Profile</a>
+            <a class="dropdown-item" href="{% url 'my_orders' %}">Your Orders</a>
             <hr class="dropdown-divider">
             <a class="dropdown-item" href="{% url 'account_logout' %}">Sign Out</a>
           {% else %}

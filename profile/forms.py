@@ -115,18 +115,13 @@ class UserProfileForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-        self.fields['profile_street_address1'].required = True
-        self.fields['profile_postcode'].required = True
-        self.fields['profile_town_or_city'].required = True
-        self.fields['profile_country'].required = True
-
         placeholders = {
             'profile_phone_number': 'Phone Number',
-            'profile_street_address1': 'Street Address 1 *',
-            'profile_street_address2': 'Street Address 2',
-            'profile_postcode': 'Postcode *',
-            'profile_town_or_city': 'Town or City *',
-            'profile_country': 'Country *',
+            'profile_street_address1': 'Street Address',
+            'profile_street_address2': 'Housing Estate, Building, ...',
+            'profile_postcode': 'Postcode',
+            'profile_town_or_city': 'Town or City',
+            'profile_country': 'Country',
         }
 
         for field in self.fields:

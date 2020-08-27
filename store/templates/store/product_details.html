@@ -11,18 +11,30 @@
   <div class="container mt-3">
     <article class="row">
 
-      <section class="col-12 pb-3 col-md-5 order-md-2">
+      <section class="col-12 py-3 col-md-5 order-md-2">
         <h3>{{ product.name }}</h3>
         <p><small>version : {{ product.date_version }}</small></p>
         <p class="mb-0">${{ product.base_price }}</p>
 
-        <div class="row my-3">
-          <form method="POST" action="{% url 'add_to_cart' product.id %}">
+        <div class="my-3">
+          <form class="product-form" method="POST" action="{% url 'add_to_cart' product.id %}">
             {% csrf_token %}
-            <div class="form-group">
-              <div class="input-group">
-                <input class="form-control" type="number" name="quantity" value="1" min="1" max="99"
-                       data-item_id="{{ product.id }}" id="prdt-{{ product.id }}-qty">
+            <div class="row">
+              <div class="form-group col-6 col-md-8">
+                <div class="input-group border border-light">
+
+                  <span id="decrement-qty" class="btn btn-sm btn-dark rounded-0 border-0 input-group-text">
+                    <i class="fas fa-minus fa-sm"></i>
+                  </span>
+
+                  <input class="form-control rounded-0 border-0" type="number" name="quantity" value="1" min="1"
+                         max="99" data-item_id="{{ product.id }}" id="product-qty">
+
+                  <span id="increment-qty" class="btn btn-sm btn-dark rounded-0 border-0 input-group-text">
+                    <i class="fas fa-plus fa-sm"></i>
+                  </span>
+
+                </div>
               </div>
             </div>
             <input type="hidden" name="redirect_url" value="{{ request.path }}">
@@ -49,4 +61,9 @@
 
     </article>
   </div>
+{% endblock %}
+
+{% block postload_js %}
+  {{ block.super }}
+  <script src="{% static 'store/js/store.js' %}"></script>
 {% endblock %}

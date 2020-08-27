@@ -10,11 +10,11 @@
 
 {% block content %}
 
-  <header class="container mt-3">
-    <h1 class="cart-title">Your cart</h1>
+  <header class="container col-md-8 offset-md-2 py-3">
+    <h1 class="title">Your Cart</h1>
   </header>
 
-  <main class="container mb-3">
+  <main class="container py-3">
     {% if cart_products %}
       <div class="row">
 
@@ -30,13 +30,11 @@
               </section>
 
               <section class="col-6 col-md-4 d-flex flex-column justify-content-between">
-                <h5><a
-                    href="{% url 'product_details' product.product.id %}">{{ product.product.name|capfirst|truncatechars:20 }}</a>
+                <h5>
+                  <a href="{% url 'product_details' product.product.id %}">{{ product.product.name|capfirst|truncatechars:20 }}</a>
                 </h5>
-                {#              <p>{{ product.product.description|truncatechars:60 }}</p>#}
-                {#              <span class="align-self-end align-self-md-start mt-auto pr-3 pb-2">${{ product.product.base_price }}</span>#}
 
-                <form class="cart-product-form" method="POST" action="{% url 'update_cart' product.product.id %}">
+                <form class="product-form" method="POST" action="{% url 'update_cart' product.product.id %}">
                   {% csrf_token %}
                   <div class="form-group">
                     <div class="input-group border border-light">
@@ -49,7 +47,7 @@
                         </span>
                       </a>
 
-                      <input type="number" class="form-control rounded-0  border-0" name="quantity" min="1" max="99"
+                      <input type="number" class="form-control rounded-0 border-0" name="quantity" min="1" max="99"
                              id="{{ product.product.id }}-cart-qty" value="{{ product.quantity }}"
                              href="{% url 'increment_cart_product' product.product.id %}">
 
@@ -57,7 +55,7 @@
                          data-item_id="{{ item.item_id }}" id="increment-{{ item.item_id }}"
                          href="{% url 'increment_cart_product' product.product.id %}">
                         <span>
-                            <i class="fas fa-plus fa-sm"></i>
+                          <i class="fas fa-plus fa-sm"></i>
                         </span>
                       </a>
                     </div>
@@ -69,9 +67,14 @@
                      href="{% url 'remove_from_cart' product.product.id %}">Remove</a>
                 </form>
 
-                <div class="d-inline-flex justify-content-between">
-                  <span>price :</span>
-                  <span>{{ product.product.base_price | multiply:product.quantity }} €</span>
+                <div class="d-inline-flex justify-content-between align-items-end">
+                  <span>Product{{ product.quantity|pluralize }} price :</span>
+                  <div class="text-right">
+                    {% if product.quantity > 1 %}
+                      <div class="text-muted small">{{ product.quantity }} x {{ product.product.base_price }} €</div>
+                    {% endif %}
+                    <div>{{ product.product.base_price | multiply:product.quantity }} €</div>
+                  </div>
                 </div>
 
               </section>
@@ -79,7 +82,8 @@
           </article>
 
           {% if forloop.revcounter0 > 0 %}
-            <hr class="divider">{% endif %}
+            <hr class="divider">
+          {% endif %}
 
         {% endfor %}
       </div>
@@ -91,7 +95,7 @@
 
       <div class="row">
         <p class="col-md-8 offset-md-2 d-flex justify-content-between">
-          <span>{{ cart_count }} Product{{ num_messages|pluralize }} :</span>
+          <span>{{ cart_count }} Product{{ cart_count|pluralize }} :</span>
           <span>Subtotal: {{ cart_total }} €</span>
         </p>
       </div>
@@ -102,24 +106,66 @@
 
       <div class="row">
         <div class="col-md-8 offset-md-2">
-          <button class="btn btn-dark rounded-0">
-            <a class="text-white" href="{% url 'store' %}">Keep Shopping</a>
-          </button>
-          <button class="btn btn-dark rounded-0">
-            <a class="text-white" href="{% url 'checkout' %}">To Checkout</a>
-          </button>
+          <a class="btn btn-dark rounded-0" href="{% url 'store' %}">
+            <span>Keep Shopping</span>
+          </a>
+          <a class="btn btn-dark rounded-0" href="{% url 'checkout' %}">
+            <span>To Checkout</span>
+          </a>
         </div>
       </div>
 
     {% else %}
       <div class="row">
-        <div class="col-md-9 offset-md-1">
+        <div class="col-md-8 offset-md-2">
           <p>You don't have any products in your cart yet.</p>
-          <button class="btn btn-dark rounded-0">
-            <a class="text-white" href="{% url 'store' %}">Browse the store</a>
-          </button>
+          <a class="btn btn-dark rounded-0" href="{% url 'store' %}">
+            <span>Browse the store</span>
+          </a>
         </div>
       </div>
     {% endif %}
   </main>
+
+  {# Remove line product confirmation modal #}
+  <div class="modal fade" id="remove-product" tabindex="-1" role="dialog" aria-labelledby="removeProductConfirmation"
+       aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <h4 class="pb-3 border-bottom">Remove this product ?</h4>
+          <div class="row">
+            <div class="col-12">
+              <p>Please confirm to remove this product from your cart.</p>
+            </div>
+            <div class="col-12">
+              <button type="button" class="btn btn-dark rounded-0" data-dismiss="modal">Cancel</button>
+              <a id="remove-btn" type="button" class="btn btn-danger rounded-0" href="#">
+                Remove
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block postload_js %}
+  {{ block.super }}
+  <script>
+    $(document).ready(function () {
+      $('.decrement-qty-btn').click(function (event) {
+        event.preventDefault();
+        var thisProductQty = $(this).next("input[name*='quantity']").val();
+        var removeProdLink = $(this).attr('href');
+        if (thisProductQty == 1) {
+            $("#remove-btn").attr('href', removeProdLink)
+            $('#remove-product').modal('show');
+        } else {
+          window.location.replace(removeProdLink);
+        }
+      });
+    });
+  </script>
 {% endblock %}

@@ -1,19 +1,100 @@
 {% extends 'base.html' %}
+{% load checkout_tools %}
 
 {% block page_title %} - Order confirmation{% endblock %}
 
 {% block content %}
-  <header class="container mt-3">
-    <h1 class="title">Order confirmation</h1>
+  <header class="container col-md-8 offset-md-2 py-3">
+    <h1 class="title">Order Confirmation</h1>
+    <p>Your order was successfully placed !</p>
   </header>
 
-  <main class="container my-3">
-    <p>Order : {{ order }}<br>
-      Total charged: {{ order.order_total }} €
-    </p>
-    <p>Your order was successfully placed !</p>
-    {% comment %}Add email confirmation{% endcomment %}
-{#    <p>You should be receiving an email shortly with your order details</p>#}
+  <main class="container col-md-8 offset-md-2 my-3">
+    <section>
+      <p>A confirmation email is being sent to you : <strong>{{ order.email }}</strong></p>
+      <p>Order : {{ order }}<br>
+        Total charged: <strong>{{ order.order_total }} €</strong>
+      </p>
+      <p>Please check the details below.</p>
+    </section>
+
+    <section class="py-3">
+      <span class="small text-muted">Order Details</span>
+      {% for lineproduct in order.lineproducts.all %}
+        <div class="py-2 border-bottom">
+          <div class="row">
+            <p class="col-12 col-md-6  small mb-0 text-black text-uppercase font-weight-bold">
+              {{ lineproduct.product.name }}
+            </p>
+          </div>
+          <div class="row">
+            <span class="col-4 small mb-0 text-right">{{ lineproduct.quantity }} x</span>
+            <span class="col-4 small mb-0">{{ lineproduct.product.base_price }}€</span>
+            <span
+                class="col-4 small mb-0">{{ lineproduct.quantity | multiply:lineproduct.product.base_price }} €</span>
+          </div>
+        </div>
+      {% endfor %}
+      <div class="py-2">
+        <div class="row">
+          <p class="col-12 col-md-6 small mb-0 text-black text-uppercase font-weight-bold">Total</p>
+        </div>
+        <div class="row">
+          <span class="offset-8 col-4 small mb-0">{{ order.order_total }} €</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-3">
+      <span class="small text-muted">Shipping details</span>
+      <div class="pt-2">
+        <div>{{ order.full_name }}</div>
+        <div>{{ order.street_address1 }}</div>
+        {% if order.street_address2 %}
+          <div>{{ order.street_address2 }}</div>
+        {% endif %}
+        <div>{{ order.postcode }}</div>
+        <div>{{ order.town_or_city }}</div>
+        {% if order.county %}
+          <div>{{ order.county }}</div>
+        {% endif %}
+        <div>{{ order.country.name }}</div>
+      </div>
+    </section>
+
+  <section class="py-3">
+    <span class="small text-muted">Contact details</span>
+    <div class="pt-2">
+      <div>{{ order.phone_number }}</div>
+      <div>{{ order.email }}</div>
+    </div>
+  </section>
+
+
+    <section class="py-3">
+      <span class="small text-muted">Billing details</span>
+      <div class="pt-2">
+        <div class="row">
+          <p class="col-12 col-md-6 small mb-0 text-black text-uppercase font-weight-bold">Total Charged</p>
+        </div>
+        <div class="row">
+          <span class="offset-8 col-4 small mb-0">{{ order.order_total }} €</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-3">
+      <p>Our customer support team is here for you should you need assistance !</p>
+    </section>
+
+    <section class="row py-3">
+      <div class="col-12 col-lg-6">
+        <a href="{% url 'store' %}" class="btn btn-dark rounded-0 my-2">
+          <span class="text-uppercase">Back to Store</span>
+        </a>
+      </div>
+    </section>
+
   </main>
 
 {% endblock %}

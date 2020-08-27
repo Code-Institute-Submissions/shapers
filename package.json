@@ -2,7 +2,7 @@
   "name": "shapers",
   "version": "1.0.0",
   "scripts": {
-    "sass": "sass --watch --style=compressed static/scss/main.scss:static/css/main.css home/static/home/scss/home.scss:home/static/home/css/home.css store/static/store/scss/store.scss:store/static/store/css/store.css cart/static/cart/scss/cart.scss:cart/static/cart/css/cart.css checkout/static/checkout/scss/checkout.scss:checkout/static/checkout/css/checkout.css"
+    "sass": "sass --watch --style=compressed static/scss/main.scss:static/css/main.css home/static/home/scss/home.scss:home/static/home/css/home.css store/static/store/scss/store.scss:store/static/store/css/store.css cart/static/cart/scss/cart.scss:cart/static/cart/css/cart.css checkout/static/checkout/scss/checkout.scss:checkout/static/checkout/css/checkout.css profile/static/profile/scss/profile.scss:profile/static/profile/css/profile.css"
   },
   "repository": {
     "type": "git",

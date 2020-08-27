@@ -1,0 +1,24 @@
+Hello {{ order.full_name }}!
+
+This is a confirmation email about your order at Shapers.
+We received your payment confirmation for the order below.
+
+Order Number: {{ order.order_number }}.
+Order Date: {{ order.date }}.
+
+Total charged: {{ order.order_total }} €.
+
+Your order is now being printed and will be shipped to {{ order.street_address1 }} in {{ order.town_or_city }}, {{ order.country.name }}.
+
+Please make sure to keep up to date your contact details until you receive this order.
+
+Your email provided: {{ order.email }}.
+Your phone number provided: {{ order.phone_number }}.
+
+If you have any questions, feel free to contact us at {{ contact_us_email }}.
+
+
+Thank you for your order !
+We hope you enjoy it.
+
+The Shapers team !

@@ -90,7 +90,7 @@ def checkout(request):
         user_profile = UserProfile.objects.get(user=request.user)
         order_form = OrderForm(initial={
             'full_name': f'{user_profile.user.first_name} '
-                         f'{user_profile.user.last_name}',
+                         f'{user_profile.user.last_name}'.strip(),
             'email': request.user.email,
             'phone_number': user_profile.profile_phone_number,
             'street_address1': user_profile.profile_street_address1,

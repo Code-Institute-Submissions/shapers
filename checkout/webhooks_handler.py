@@ -5,6 +5,9 @@ from store.models import Product
 import time
 import json
 from datetime import datetime, timedelta
+from django.conf import settings
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
 
 
 class StripeWhHandler:
@@ -19,6 +22,24 @@ class StripeWhHandler:
         return HttpResponse(
             content=f'Stripe webhook received: {event["type"]}',
             status=200)
+
+    def _send_confirmation_email(self, order):
+        """Send the user a confirmation email"""
+
+        order_email = order.email
+        email_subject = render_to_string(
+            'checkout/emails/payment_confirmation_email_subject.txt',
+            {'order': order})
+        email_body = render_to_string(
+            'checkout/emails/payment_confirmation_email_body.txt',
+            {'order': order, 'contact_us_email': settings.DEFAULT_FROM_EMAIL})
+
+        send_mail(
+            subject=email_subject,
+            message=email_body,
+            from_email=settings.EMAIL_HOST_USER,
+            recipient_list=[order_email]
+        )
 
     def handle_payment_intent_succeeded(self, event):
         """Handle Stripe successful payment intents"""
@@ -66,6 +87,7 @@ class StripeWhHandler:
                     status=500)
 
         if order_exists:
+            self._send_confirmation_email(order)
             return HttpResponse(
                 content=(f'Stripe Webhook processed: {event["type"]};'
                          f'Order already saved in Database'),
@@ -99,12 +121,15 @@ class StripeWhHandler:
                         quantity=quantity
                     )
 
+                self._send_confirmation_email(order_process)
                 return HttpResponse(
                     content=f'Stripe Webhook received: {event["type"]}; '
                             f'Order saved by webhook handler',
                     status=200)
 
             except Exception as e:
+                if order_process:
+                    order_process.delete()
 
                 return HttpResponse(
                     content=f'Error saving the order with WH handler: '

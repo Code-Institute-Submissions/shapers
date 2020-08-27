@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_title %} - My Orders{% endblock %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'profile/css/profile.css' %}">
+{% endblock %}
+
+{% block content %}
+  <header class="container col-md-8 offset-md-2 py-3">
+    <h1 class="title">Your Orders</h1>
+  </header>
+
+  <main class="container col-md-8 offset-md-2 mb-3">
+
+    {% comment %}Will separate by order status: current (processing & shipped), past (delivered) {% endcomment %}
+
+    <section class="py-2">
+
+      {% for order in user_orders %}
+        <article class="my-3 col-md-10 offset-md-1">
+          <div class="d-flex flex-column">
+            <header class="d-flex justify-content-between py-2">
+              <span><a href="{% url 'order_details' order.id %}">N° {{ order.order_number|truncatechars:20 }}</a></span>
+              <div class="text-right">
+                <span class="">{{ order.order_total }} €</span><br>
+                <span class="">{{ order.date|date:"M d Y" }}</span>
+              </div>
+            </header>
+
+            <small class="text-muted">Product{{ order.lineproducts.count|pluralize }}</small>
+            <div class="d-flex my-2 my-md-3">
+
+              {% for lineproduct in order.lineproducts.all|slice:"0:3" %}
+                <a href="{% url 'product_details' lineproduct.product.id %}">
+                  <img class="order-tbn mr-2" src="{{ lineproduct.product.image.url }}"
+                       alt="{{ lineproduct.product.name }}"
+                       width="100">
+                </a>
+              {% endfor %}
+
+              {% if order.lineproducts.all.count > 3 %}
+                <span class="align-self-center text-muted small">{{ order.lineproducts.all.count|add:-3 }} more</span>
+              {% endif %}
+            </div>
+          </div>
+
+          <div class="py-3">
+            <a class="btn btn-dark btn-sm rounded-0" href="{% url 'order_details' order.id %}">Order Details</a>
+          </div>
+
+        </article>
+
+        {% if forloop.revcounter0 > 0 %}
+          <hr class="divider col-12 col-md-6 offset-md-3 my-3">
+        {% endif %}
+
+        {% if forloop.revcounter0 == 0 %}
+          <hr class="divider col-12 my-5">
+
+          <section class="my-5">
+            <div class="mb-3 col-md-10 offset-md-1">
+              <a href="{% url 'store' %}" class="btn btn-dark rounded-0">Back to Store</a>
+            </div>
+          </section>
+        {% endif %}
+
+      {% empty %}
+        <p>You have not placed any order yet !</p>
+        <a class="btn btn-dark rounded-0" href="{% url 'store' %}">
+          Start Shopping
+        </a>
+
+      {% endfor %}
+    </section>
+
+
+  </main>
+
+
+{% endblock %}

@@ -8,11 +8,11 @@
 {% endblock %}
 
 {% block content %}
-  <header class="container mt-3">
+  <header class="container col-md-8 offset-md-2 py-3">
     <h1 class="title">Checkout</h1>
   </header>
 
-  <main class="container mb-3">
+  <main class="container col-md-8 offset-md-2 mb-3">
 
     <section class="py-2">
       <h2>Shipping & Billing Details</h2>
@@ -56,6 +56,15 @@
       </form>
     </section>
   </main>
+
+  <div id="fullscreen-overlay">
+    <div class="d-flex justify-content-center">
+      <div class="spinner-border text-light align-self-center" role="status"
+           style="width: 3rem; height: 3rem;">
+        <span class="sr-only">Processing...</span>
+      </div>
+    </div>
+  </div>
 
 {% endblock %}
 

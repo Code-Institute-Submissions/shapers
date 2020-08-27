@@ -1,0 +1,188 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load profile_tools %}
+
+{% block page_title %} - My Orders{% endblock %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'profile/css/profile.css' %}">
+{% endblock %}
+
+{% block content %}
+  <header class="container col-md-8 offset-md-2 py-3">
+    <h1 class="title">Your Order</h1>
+    <p>N° {{ order.order_number }}</p>
+  </header>
+
+  <main class="container col-md-8 offset-md-2 mb-3">
+
+    <section class="py-2">
+      <h2>Billing Details</h2>
+
+      <div class="py-3 py-md-4 col-12">
+        <div class="row">
+          <div class="col-6 col-md-4 offset-md-1 col-lg-3 offset-lg-2">
+            Total charged :
+          </div>
+          <div class="col-6 col-md-4 d-flex flex-column justify-content-between">
+            {{ order.order_total }} €
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6 col-md-4 offset-md-1 col-lg-3 offset-lg-2">
+            Payment date :
+          </div>
+          <div class="col-6 col-md-4 d-flex flex-column justify-content-between">
+            {% comment %}Work on Timezone and DST with order.country{% endcomment %}
+            {{ order.date|date:"M d Y" }}
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <section class="py-2">
+      <h2>Shipping Details</h2>
+
+      <article class="py-3 py-md-4 col-12">
+        <div class="row">
+          <div class="col-6 col-md-4 offset-md-1 col-lg-3 offset-lg-2">
+            Full Name :
+          </div>
+          <div class="col-6 col-md-4 d-flex flex-column justify-content-between">
+            {{ order.full_name }}
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6 col-md-4 offset-md-1 col-lg-3 offset-lg-2">
+            Contact Phone :
+          </div>
+          <div class="col-6 col-md-4 d-flex flex-column justify-content-between">
+            {{ order.phone_number }}
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6 col-md-4 offset-md-1 col-lg-3 offset-lg-2">
+            Contact Email :
+          </div>
+          <div class="col-6 col-md-4 d-flex flex-column justify-content-between">
+            {{ order.email }}
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6 col-md-4 offset-md-1 col-lg-3 offset-lg-2">
+            Address :
+          </div>
+          <div class="col-6 col-md-4 d-flex flex-column justify-content-between">
+            {{ order.street_address1 }}
+            {% if order.street_address2 %}
+              <br>{{ order.street_address2 }}
+            {% endif %}
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6 col-md-4 offset-md-1 col-lg-3 offset-lg-2">
+            City :
+          </div>
+          <div class="col-6 col-md-4 d-flex flex-column justify-content-between">
+            {{ order.town_or_city }}
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6 col-md-4 offset-md-1 col-lg-3 offset-lg-2">
+            Postal Code :
+          </div>
+          <div class="col-6 col-md-4 d-flex flex-column justify-content-between">
+            {{ order.postcode }}
+          </div>
+        </div>
+
+        {% if order.county %}
+          <div class="row">
+            <div class="col-6 col-md-4 offset-md-1 col-lg-3 offset-lg-2">
+              County, State, ... :
+            </div>
+            <div class="col-6 col-md-4 d-flex flex-column justify-content-between">
+              {{ order.county }}
+            </div>
+          </div>
+        {% endif %}
+
+        <div class="row">
+          <div class="col-6 col-md-4 offset-md-1 col-lg-3 offset-lg-2">
+            Country :
+          </div>
+          <div class="col-6 col-md-4 d-flex flex-column justify-content-between">
+            {{ order.country.name }}
+          </div>
+        </div>
+
+      </article>
+    </section>
+
+    <section class="py-2">
+      <h2>Order Details</h2>
+
+      {% for lineproduct in order.lineproducts.all %}
+
+        <article class="py-3 py-md-4 col-12">
+          <div class="row">
+            <section class="col-6 col-md-4 offset-md-1 col-lg-3 offset-lg-2">
+              <a href="{% url 'product_details' lineproduct.product.id %}">
+                <img class="order-img" src="{{ lineproduct.product.image.url }}" alt="{{ lineproduct.product.name }}"
+                     width="140">
+              </a>
+            </section>
+
+            <section class="col-6 col-md-4 d-flex flex-column justify-content-between">
+              <header>
+                <h5>
+                  <a href="{% url 'product_details' lineproduct.product.id %}">
+                    {{ lineproduct.product.name|capfirst|truncatechars:20 }}
+                  </a>
+                </h5>
+                <small class="text-muted small">Version : {{ lineproduct.product.date_version }}</small>
+              </header>
+
+              <div class="d-flex flex-column">
+                <div class="d-inline-flex justify-content-between align-items-baseline">
+                  <span class="text-muted small">Unit price : </span>
+                  <span>{{ lineproduct.product.base_price }} €</span>
+                </div>
+
+                <div class="d-inline-flex justify-content-between align-items-baseline">
+                  <span class="text-muted small">Quantity : </span>
+                  <span>{{ lineproduct.quantity }}</span>
+                </div>
+
+                <div>
+                  <hr class="divider col-12 my-3">
+                </div>
+
+                <div class="d-inline-flex justify-content-between align-items-baseline">
+                  <span class="text-muted small">Products price :</span>
+                  <span>{{ lineproduct.product.base_price | multiply:lineproduct.quantity }} €</span>
+                </div>
+              </div>
+
+            </section>
+          </div>
+        </article>
+
+        {% if forloop.revcounter0 > 0 %}
+          <hr class="divider col-12 col-md-6 offset-md-3 my-3">
+        {% endif %}
+
+      {% endfor %}
+
+    </section>
+
+  </main>
+
+{% endblock %}

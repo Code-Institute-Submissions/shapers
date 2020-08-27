@@ -3,10 +3,11 @@
 {% block page_title %} - My Profile{% endblock %}
 
 {% block content %}
-  <header class="container mt-3">
+  <header class="container col-md-8 offset-md-2 py-3">
     <h1 class="title">My Profile</h1>
   </header>
-  <main class="container mb-3">
+
+  <main class="container col-md-8 offset-md-2 py-3">
 
     <section class="py-2">
       <h2>Login Details</h2>
@@ -68,7 +69,7 @@
   </main>
 
   {# Delete Account modal #}
-  <div class="modal fade" id="del-account" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+  <div class="modal fade" id="del-account" tabindex="-1" role="dialog" aria-labelledby="deleteAccountConfirmation"
        aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
