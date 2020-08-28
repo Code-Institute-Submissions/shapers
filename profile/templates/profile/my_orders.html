@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load profile_tools %}
 
 {% block page_title %} - My Orders{% endblock %}
 
@@ -29,7 +30,10 @@
               </div>
             </header>
 
-            <small class="text-muted">Product{{ order.lineproducts.count|pluralize }}</small>
+            <small class="text-muted">
+              <span>{{ order.lineproducts.count }} Product{{ order.lineproducts.count|pluralize }}</span>
+              <span> | {{ order.lineproducts.all|printqty }} Print{{ order.lineproducts.all|printqty|pluralize }}</span>
+            </small>
             <div class="d-flex my-2 my-md-3">
 
               {% for lineproduct in order.lineproducts.all|slice:"0:3" %}
@@ -59,8 +63,20 @@
         {% if forloop.revcounter0 == 0 %}
           <hr class="divider col-12 my-5">
 
+          <section class="py-2">
+            <div class="col-md-10 offset-md-1">
+              <p>You seem most interested in th{{ fav_categories.count|pluralize:'is,ese' }}
+                categor{{ fav_categories.count|pluralize:'y,ies' }}:
+              </p>
+              {% for fav_category in fav_categories %}
+                <a class="btn btn-dark rounded-0 text-capitalize"
+                   href="{% url 'store' %}?category={{ fav_category.product__category__name }}">{{ fav_category.product__category__name }}</a>
+              {% endfor %}
+            </div>
+          </section>
+
           <section class="my-5">
-            <div class="mb-3 col-md-10 offset-md-1">
+            <div class="mb-3 col-md-10 offset-md-1 text-capitalize">
               <a href="{% url 'store' %}" class="btn btn-dark rounded-0">Back to Store</a>
             </div>
           </section>
@@ -75,8 +91,6 @@
       {% endfor %}
     </section>
 
-
   </main>
-
 
 {% endblock %}

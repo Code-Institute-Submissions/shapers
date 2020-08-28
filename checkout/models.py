@@ -9,6 +9,9 @@ from django_countries.fields import CountryField
 class Order(models.Model):
     """Basic Order model used for payment & shipping"""
 
+    class Meta:
+        ordering = ('-date',)
+
     order_number = models.UUIDField(default=uuid4, editable=False)
     date = models.DateTimeField(auto_now_add=True, editable=False)
     user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL,

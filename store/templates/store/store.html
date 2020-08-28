@@ -44,7 +44,7 @@
               </a>
             </section>
             <section class="col-6 col-md-12 pt-md-1 pb-md-2 d-flex flex-column">
-              <h5><a href="{% url 'product_details' product.id %}">{{ product.name }}</a></h5>
+              <h5><a href="{% url 'product_details' product.id %}">{{ product.name|capfirst }}</a></h5>
               <p>{{ product.description|truncatechars:60 }}</p>
               <span class="align-self-end align-self-md-start mt-auto pr-3 pb-2">${{ product.base_price }}</span>
             </section>

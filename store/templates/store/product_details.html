@@ -12,8 +12,8 @@
     <article class="row">
 
       <section class="col-12 py-3 col-md-5 order-md-2">
-        <h3>{{ product.name }}</h3>
-        <p><small>version : {{ product.date_version }}</small></p>
+        <h3>{{ product.name|capfirst }}</h3>
+        <p><small class="text-muted">version : {{ product.date_version }}</small></p>
         <p class="mb-0">${{ product.base_price }}</p>
 
         <div class="my-3">
@@ -23,14 +23,16 @@
               <div class="form-group col-6 col-md-8">
                 <div class="input-group border border-light">
 
-                  <span id="decrement-qty" class="btn btn-sm btn-dark rounded-0 border-0 input-group-text">
+                  <span id="decrement-qty" class="btn btn-sm btn-dark rounded-0 border-0 input-group-text"
+                    data-toggle="tooltip" title="">
                     <i class="fas fa-minus fa-sm"></i>
                   </span>
 
                   <input class="form-control rounded-0 border-0" type="number" name="quantity" value="1" min="1"
                          max="99" data-item_id="{{ product.id }}" id="product-qty">
 
-                  <span id="increment-qty" class="btn btn-sm btn-dark rounded-0 border-0 input-group-text">
+                  <span id="increment-qty" class="btn btn-sm btn-dark rounded-0 border-0 input-group-text"
+                        data-toggle="tooltip" title="">
                     <i class="fas fa-plus fa-sm"></i>
                   </span>
 
@@ -38,12 +40,12 @@
               </div>
             </div>
             <input type="hidden" name="redirect_url" value="{{ request.path }}">
-            <button type="submit" class="btn btn-dark btn-small rounded-0">Add to cart</button>
+            <button type="submit" class="btn btn-dark btn-small rounded-0 text-capitalize">Add to cart</button>
           </form>
         </div>
         <hr class="divider my-3 d-none d-md-block">
         <section class="d-none d-md-block">
-          <p>{{ product.description }}</p>
+          <p>{{ product.description|capfirst }}</p>
         </section>
       </section>
 
@@ -56,7 +58,7 @@
       <hr class="divider d-md-none">
 
       <section class="col-12 py-3 d-md-none">
-        <p>{{ product.description }}</p>
+        <p>{{ product.description|capfirst }}</p>
       </section>
 
     </article>

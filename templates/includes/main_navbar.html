@@ -19,10 +19,10 @@
             <a class="dropdown-item" href="{% url 'profile' %}">Your Profile</a>
             <a class="dropdown-item" href="{% url 'my_orders' %}">Your Orders</a>
             <hr class="dropdown-divider">
-            <a class="dropdown-item" href="{% url 'account_logout' %}">Sign Out</a>
+            <a class="dropdown-item" href="{% url 'account_logout' %}?next={{ request.path }}">Sign Out</a>
           {% else %}
-            <a class="dropdown-item" href="{% url 'account_login' %}">Sign In</a>
-            <a class="dropdown-item" href="{% url 'account_signup' %}">Sign Up</a>
+            <a class="dropdown-item" href="{% url 'account_login' %}?next={{ request.path }}">Sign In</a>
+            <a class="dropdown-item" href="{% url 'account_signup' %}?next={{ request.path }}">Sign Up</a>
           {% endif %}
         </div>
       </li>

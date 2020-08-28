@@ -12,14 +12,14 @@
   <main class="container col-md-8 offset-md-2 my-3">
     <section>
       <p>A confirmation email is being sent to you : <strong>{{ order.email }}</strong></p>
-      <p>Order : {{ order }}<br>
+      <p>Order N° {{ order }}<br>
         Total charged: <strong>{{ order.order_total }} €</strong>
       </p>
       <p>Please check the details below.</p>
     </section>
 
     <section class="py-3">
-      <span class="small text-muted">Order Details</span>
+      <span class="small text-muted text-capitalize">Order Details</span>
       {% for lineproduct in order.lineproducts.all %}
         <div class="py-2 border-bottom">
           <div class="row">
@@ -46,7 +46,7 @@
     </section>
 
     <section class="py-3">
-      <span class="small text-muted">Shipping details</span>
+      <span class="small text-muted text-capitalize">Shipping details</span>
       <div class="pt-2">
         <div>{{ order.full_name }}</div>
         <div>{{ order.street_address1 }}</div>
@@ -63,7 +63,7 @@
     </section>
 
   <section class="py-3">
-    <span class="small text-muted">Contact details</span>
+    <span class="small text-muted text-capitalize">Contact details</span>
     <div class="pt-2">
       <div>{{ order.phone_number }}</div>
       <div>{{ order.email }}</div>
@@ -72,7 +72,7 @@
 
 
     <section class="py-3">
-      <span class="small text-muted">Billing details</span>
+      <span class="small text-muted text-capitalize">Billing details</span>
       <div class="pt-2">
         <div class="row">
           <p class="col-12 col-md-6 small mb-0 text-black text-uppercase font-weight-bold">Total Charged</p>
@@ -90,7 +90,7 @@
     <section class="row py-3">
       <div class="col-12 col-lg-6">
         <a href="{% url 'store' %}" class="btn btn-dark rounded-0 my-2">
-          <span class="text-uppercase">Back to Store</span>
+          <span class="text-capitalize">Back to Store</span>
         </a>
       </div>
     </section>

@@ -3,8 +3,10 @@ from django.shortcuts import render, get_object_or_404, redirect, reverse
 from .models import UserProfile
 from .forms import UserProfileForm
 from django.contrib.auth.models import User
-from checkout.models import Order
+from checkout.models import Order, OrderLineProduct
 from django.contrib import messages
+from django.db.models import Count
+from store.models import Category
 
 
 @login_required
@@ -47,8 +49,14 @@ def my_orders(request):
     user_profile = get_object_or_404(UserProfile, user=request.user)
     user_orders = user_profile.orders.all()
 
+    user_most_ordered_categories = OrderLineProduct.objects.filter(
+        order__user_profile=user_profile)\
+        .values("product__category__name")\
+        .annotate(count=Count('product')).order_by("-count")[:3]
+
     context = {
-        'user_orders': user_orders
+        'user_orders': user_orders,
+        'fav_categories': user_most_ordered_categories,
     }
 
     return render(request, 'profile/my_orders.html', context=context)
