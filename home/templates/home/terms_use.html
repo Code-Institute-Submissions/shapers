@@ -116,7 +116,8 @@
     <section class="mb-5">
       <h2 class="border-bottom pb-1">Contact Us</h2>
 
-      <p>If you have any questions about these Terms, please <a href="#">contact us</a>.
+      <p>If you have any questions about these Terms, please
+        <a href="{% url 'contact_us' %}?next={{ request.path }}">contact us</a>.
       <p>
     </section>
   </main>

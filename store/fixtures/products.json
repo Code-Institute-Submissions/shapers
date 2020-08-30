@@ -1,0 +1,145 @@
+[
+  {
+    "model": "store.product",
+    "pk": 1,
+    "fields": {
+      "name": "Captain Marvel",
+      "sku": "99141012-5388-478b-8c34-84080eae1adf",
+      "category": 7,
+      "description": "Captain marvel chiby version",
+      "date_version": "2020-08-10",
+      "base_price": "20.50",
+      "image": "products/99141012-5388-478b-8c34-84080eae1adf/image_01.jpg"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 2,
+    "fields": {
+      "name": "Nebula",
+      "sku": "37092b6c-7557-4a73-a9e8-86da5882a4b4",
+      "category": 7,
+      "description": "Chiby version",
+      "date_version": "2020-08-09",
+      "base_price": "20.49",
+      "image": "products/37092b6c-7557-4a73-a9e8-86da5882a4b4/image_01.jpg"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 3,
+    "fields": {
+      "name": "Troll",
+      "sku": "b04c6371-c842-4e80-80a9-b5254efa0307",
+      "category": 10,
+      "description": "From World of Warcraft",
+      "date_version": "2020-08-09",
+      "base_price": "25.99",
+      "image": "products/b04c6371-c842-4e80-80a9-b5254efa0307/image_01.jpg"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 4,
+    "fields": {
+      "name": "Angel",
+      "sku": "fbf069c4-476a-4e0a-a7c4-d3917893156b",
+      "category": 8,
+      "description": "Cute angel",
+      "date_version": "2020-08-09",
+      "base_price": "12.99",
+      "image": "products/fbf069c4-476a-4e0a-a7c4-d3917893156b/image_01.jpg"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 5,
+    "fields": {
+      "name": "Ganesh",
+      "sku": "f2cfd1bb-5f4a-40e5-88f5-29fa4b09d2ad",
+      "category": 8,
+      "description": "Lovely ganesh copper effect with brush finish",
+      "date_version": "2020-08-09",
+      "base_price": "22.50",
+      "image": "products/f2cfd1bb-5f4a-40e5-88f5-29fa4b09d2ad/image_01.png"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 6,
+    "fields": {
+      "name": "Dinosaure",
+      "sku": "25494ca0-98d6-4153-85f8-ad08e24cf3e4",
+      "category": 11,
+      "description": "Cute dinausaure pokemon design",
+      "date_version": "2020-08-07",
+      "base_price": "8.90",
+      "image": "products/25494ca0-98d6-4153-85f8-ad08e24cf3e4/image_01.jpg"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 7,
+    "fields": {
+      "name": "barbarian King",
+      "sku": "3e8d134e-dcb1-4b6b-bf00-335e08a8a7a6",
+      "category": 10,
+      "description": "All hail the King !!!",
+      "date_version": "2020-08-10",
+      "base_price": "14.50",
+      "image": "products/3e8d134e-dcb1-4b6b-bf00-335e08a8a7a6/image_01.jpg"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 8,
+    "fields": {
+      "name": "EVA 02",
+      "sku": "5f507a34-b547-457e-9867-15c787e7f0a2",
+      "category": 11,
+      "description": "EVA 02 !",
+      "date_version": "2020-08-10",
+      "base_price": "25.00",
+      "image": "products/5f507a34-b547-457e-9867-15c787e7f0a2/image_01.jpg"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 9,
+    "fields": {
+      "name": "Captain America",
+      "sku": "aa99ca39-4e57-40df-9152-7a06efa707b0",
+      "category": 7,
+      "description": "A very muscular captain america in action !",
+      "date_version": "2020-08-11",
+      "base_price": "22.50",
+      "image": "products/aa99ca39-4e57-40df-9152-7a06efa707b0/image_01.jpg"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 11,
+    "fields": {
+      "name": "Bastion",
+      "sku": "7b86d7f3-c496-46ba-bb2c-9e26ec264535",
+      "category": 10,
+      "description": "Overwatch Bastion with his bird of course !",
+      "date_version": "2020-08-09",
+      "base_price": "18.90",
+      "image": "products/7b86d7f3-c496-46ba-bb2c-9e26ec264535/image_01.jpg"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 12,
+    "fields": {
+      "name": "torso",
+      "sku": "4def2f00-8cc2-4f9f-a06c-b92214099dbb",
+      "category": 9,
+      "description": "Torso antique style that fits well on a garden's balcony.",
+      "date_version": "2020-08-10",
+      "base_price": "18.50",
+      "image": "products/4def2f00-8cc2-4f9f-a06c-b92214099dbb/image_01.jpg"
+    }
+  }
+]

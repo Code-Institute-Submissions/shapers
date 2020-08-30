@@ -24,7 +24,7 @@
                 <div class="input-group border border-light">
 
                   <span id="decrement-qty" class="btn btn-sm btn-dark rounded-0 border-0 input-group-text"
-                    data-toggle="tooltip" title="">
+                        data-toggle="tooltip" title="">
                     <i class="fas fa-minus fa-sm"></i>
                   </span>
 
@@ -52,7 +52,36 @@
       <hr class="divider d-md-none">
 
       <section class="col-12 col-md-7 py-3">
-        <img class="product-img" src="{{ product.image.url }}" alt="{{ product.name }}" width="140">
+        {% if product.printing_file %}
+          <model-viewer id="model-viewer" src="{{ product.printing_file.file.url }}"
+                        alt="3D model of {{ product.name }}" auto-rotate
+                        camera-controls shadow-intensity="1" shadow-softness="1" poster="{{ product.image.url }}"
+                        style="width: 100%; min-height: 350px; height: 50vh">
+          </model-viewer>
+          <img id="image-view" class="product-img" src="{{ product.image.url }}" alt="{{ product.name }}" width="140"
+               style="display: none;">
+        {% else %}
+          <img id="image-view" class="product-img" src="{{ product.image.url }}" alt="{{ product.name }}" width="140">
+        {% endif %}
+
+        {% if product.images.all.count %}
+          <div class="row mx-auto tbn-list">
+            {% if product.printing_file %}
+              <img class="col-3 col-lg-2 product-tbn" src="{{ product.image.url }}" alt="{{ product.image.name }}"
+                   height="80px" width="80px">
+              <div class="d-flex justify-content-center col-3 col-lg-2 product-tbn product-tbn-3d">
+                <i class="fas fa-cubes fa-3x align-self-center"></i>
+              </div>
+            {% endif %}
+            <img class="col-3 col-lg-2 product-tbn" src="{{ product.image.url }}" alt="{{ product.image.name }}"
+                 height="80px" width="80px">
+            {% for img in product.images.all %}
+              <img class="col-3 col-lg-2 product-tbn" src="{{ img.image.url }}" alt="{{ img.image_name }}" height="80px"
+                   width="80px">
+            {% endfor %}
+          </div>
+        {% endif %}
+
       </section>
 
       <hr class="divider d-md-none">
@@ -63,9 +92,23 @@
 
     </article>
   </div>
+
+  <!-- Product Image Viewer -->
+  <div id="product-viewer" class="viewer-window">
+    <div id="viewer-content" class="viewer-content">
+      <div class="viewer-btns">
+        <span class="m-4" onclick="toggleFullScreen()"><i class="fa fa-expand"></i></span>
+        <a id="viewer-close"><i class="fas fa-times"></i></a>
+      </div>
+      <img id="viewer-image" class="viewer-image" src="{{ product.image.url }}" alt="image missing" onclick="toggleFullScreen()">
+    </div>
+  </div>
 {% endblock %}
 
 {% block postload_js %}
   {{ block.super }}
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+  <script src="{% static 'store/js/product_viewer.js' %}"></script>
   <script src="{% static 'store/js/store.js' %}"></script>
 {% endblock %}

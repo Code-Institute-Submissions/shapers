@@ -1,0 +1,13 @@
+We heard you loud and clear !
+
+This is a confirmation email about your inquiry at Shapers on {{ inquiry.date }}.
+
+We received your inquiry:
+
+{{ inquiry.message }}
+
+Our support team will get back to you as soon as possible regarding this matter.
+We'll use this same email address {{ inquiry.email }}. Please make sure it doesn't fall into your spams.
+
+Thank you !
+The Shapers team !

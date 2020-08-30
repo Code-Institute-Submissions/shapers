@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block page_title %} - About Us{% endblock %}
+
+{% block content %}
+  <header class="container col-md-8 offset-md-2 my-5">
+    <h1 class="border-bottom pb-2 mb-1">Contact Us</h1>
+    <p><strong>We want to hear from you !</strong></p>
+  </header>
+
+  <main class="container col-md-8 offset-md-2">
+    <section class="mb-5">
+      <p>You need more information about our service ? A product or an order you placed with us recently ?
+        Perhaps you just want to let us know what you think of our service !</p>
+      <p><strong>Feel free to write it down ;)</strong></p>
+    </section>
+
+    <section class="mb-5">
+      <form method="POST" action="{% url 'contact_us' %}">
+        {% csrf_token %}
+
+        <span class="small text-muted pl-3">Your Inquiry</span>
+
+        {% if contact_form.has_error %}
+          {% for error in contact_form.errors %}
+            <p class="form-field-error">{{ error }}</p>
+          {% endfor %}
+        {% endif %}
+
+        {% for field in contact_form %}
+          <div class="input-group pt-2">
+            {{ field }}
+          </div>
+        {% endfor %}
+
+        <input type="hidden" name="redirect_to" value="{{ next }}"/>
+
+        <div class="my-3">
+          <a class="btn btn-dark rounded-0" href="{{ next }}">Cancel</a>
+          <button class="btn btn-dark rounded-0 mx-auto mx-md-0" type="submit">Send !</button>
+        </div>
+      </form>
+    </section>
+  </main>
+{% endblock %}

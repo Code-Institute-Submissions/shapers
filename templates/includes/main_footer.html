@@ -6,7 +6,7 @@
       <div class="col-4 offset-2 offset-md-2">
         <ul>
           <li><a href="{% url 'about_us' %}">About Us</a></li>
-          <li><a href="#">Contact Us</a></li>
+          <li><a href="{% url 'contact_us' %}?next={{ request.path }}">Contact Us</a></li>
         </ul>
       </div>
       <!-- Legal Info -->

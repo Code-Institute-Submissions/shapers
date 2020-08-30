@@ -84,7 +84,8 @@
     </section>
 
     <section class="py-3">
-      <p>Our customer support team is here for you should you need assistance !</p>
+      <p>Our customer support team is here for you should you need assistance !
+      <a href="{% url 'contact_us' %}?next={{ request.path }}">Contact us</a>.</p>
     </section>
 
     <section class="row py-3">

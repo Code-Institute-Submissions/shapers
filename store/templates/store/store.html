@@ -32,10 +32,16 @@
       </p>
     {% endif %}
 
+    {# PAGINATION #}
+    {% include 'store/includes/pagination.html' %}
+
   </header>
+
+  {# PAGINATION PRODUCTS #}
   <main class="container mb-3">
+
     <div class="row">
-      {% for product in products %}
+      {% for product in page %}
         <article class="col-12 col-md-4 d-md-flex">
           <div class="row">
             <section class="col-6 col-md-12">
@@ -61,6 +67,7 @@
         {% endif %}
       {% endfor %}
     </div>
+
   </main>
 {% endblock %}
 

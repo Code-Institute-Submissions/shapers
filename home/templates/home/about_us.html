@@ -27,7 +27,8 @@
 
     <section class="mb-5">
       <h2 class="border-bottom pb-1">Contact Us</h2>
-      <p>You want to know more about what and how we operate ? Want to become a partner and join us on this journey ? <a href="#">Contact us</a>.
+      <p>You want to know more about what and how we operate ? Want to become a partner and join us on this journey ?
+        <a href="{% url 'contact_us' %}?next={{ request.path }}">Contact us</a>.
       </p>
     </section>
   </main>

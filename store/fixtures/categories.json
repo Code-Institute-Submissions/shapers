@@ -1,0 +1,42 @@
+[
+  {
+    "model": "store.category",
+    "pk": 7,
+    "fields": {
+      "name": "Marvel",
+      "description": null
+    }
+  },
+  {
+    "model": "store.category",
+    "pk": 8,
+    "fields": {
+      "name": "Home",
+      "description": null
+    }
+  },
+  {
+    "model": "store.category",
+    "pk": 9,
+    "fields": {
+      "name": "Garden",
+      "description": null
+    }
+  },
+  {
+    "model": "store.category",
+    "pk": 10,
+    "fields": {
+      "name": "games",
+      "description": null
+    }
+  },
+  {
+    "model": "store.category",
+    "pk": 11,
+    "fields": {
+      "name": "Animation",
+      "description": null
+    }
+  }
+]

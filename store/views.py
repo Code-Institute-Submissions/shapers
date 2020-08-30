@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Product
 from django.db.models import Q
+from django.core.paginator import Paginator
 
 
 def store(request):
@@ -12,11 +13,20 @@ def store(request):
     query_categories = None
     query_sorting = None
 
+    # Keep products per page %3 aligned with BS grid
+    per_page = 9
+    p = Paginator(products, per_page=per_page)
+
     if request.GET:
 
         if 'category' in request.GET:
             query_categories = request.GET['category'].split(',')
             products = products.filter(category__name__in=query_categories)
+            request.session['search_category'] = query_categories
+
+        elif 'search_category' in request.session:
+            products = products.filter(
+                category__name__in=request.session['search_category'])
 
         if 'q' in request.GET:
             query_string = request.GET['q']
@@ -39,11 +49,26 @@ def store(request):
                 query_sorting = f'{sort}_{sort_direction}'
             products = products.order_by(sort_by)
 
+            request.session['sort_by'] = sort_by
+
+        elif 'sort_by' in request.session:
+            products = products.order_by(request.session['sort_by'])
+
+        p = Paginator(products, per_page=per_page)
+
+        if 'page' in request.GET:
+            page = p.get_page(request.GET['page'])
+        else:
+            page = p.get_page(1)
+    else:
+        page = p.get_page(1)
+
     context = {
         'products': products,
         'query_string': query_string,
         'query_categories': query_categories,
         'query_sorting': query_sorting,
+        'page': page,
     }
 
     return render(request, 'store/store.html', context=context)

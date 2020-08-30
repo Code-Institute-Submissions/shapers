@@ -22,7 +22,7 @@ class Migration(migrations.Migration):
                 ('description', models.TextField(max_length=999)),
                 ('date_version', models.DateField(auto_now_add=True)),
                 ('base_price', models.DecimalField(decimal_places=2, max_digits=6)),
-                ('image', models.ImageField(upload_to=store.models.new_image_path)),
+                ('image', models.ImageField(upload_to=store.models._new_image_path)),
                 ('category', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='store.category')),
             ],
             options={
