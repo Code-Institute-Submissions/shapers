@@ -20,6 +20,14 @@ html, body {
   width: 80%;
 }
 
+.container--white {
+  padding: 2rem;
+  background-color: rgba(255,255,255,1);
+}
+.container--slant-bl {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 6vw), 0 100%);
+}
+
 /*
         ___ MESSAGES & FEEDBACK ___
 */

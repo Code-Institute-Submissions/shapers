@@ -8,10 +8,15 @@
 {% block page_title %} - 3D printing for you{% endblock %}
 
 {% block content %}
-  <div class="landing-background">
-    <div class="container py-5">
-      <h2 class="title">3D PRINTING</h2>
-      <p>For you</p>
+  <div class="landing-background"></div>
+
+  <header class="row container--white container--slant-bl">
+    <div class="container col-md-8 offset-md-2">
+      <h1 class="title">3D PRINTING</h1>
+      <h2 class="title text-capitalize">What you desire !</h2>
     </div>
-  </div>
+  </header>
+
+  <a class="btn btn-light landing-action rounded-0 p-3 title text-uppercase" href="{% url 'store' %}">Start Shopping</a>
+
 {% endblock %}

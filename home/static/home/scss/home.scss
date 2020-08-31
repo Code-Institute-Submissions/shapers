@@ -1,7 +1,17 @@
 .landing-background {
-  height: 300px;
-  width: 100%;
   background-image: url("/media/img/background_landing.jpg");
   background-size: cover;
   background-position: bottom;
+  bottom: 50px;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  z-index: -5;
+}
+
+.landing-action {
+  position: absolute;
+  bottom: calc(147px + 10%);
+  right: 20%;
+  font-size: 1.5rem;
 }
