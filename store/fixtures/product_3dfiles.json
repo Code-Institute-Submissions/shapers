@@ -1,0 +1,138 @@
+[
+  {
+    "model": "store.product3dfile",
+    "pk": 1,
+    "fields": {
+      "product": null,
+      "file": "products/09b2b287-6393-4474-baef-1d3f485c9b99/e7405946d32f40e091c3ce11e9d3ed50.glb"
+    }
+  },
+  {
+    "model": "store.product3dfile",
+    "pk": 2,
+    "fields": {
+      "product": 14,
+      "file": "products/53d8832a-21ab-4159-96a4-ebfda0be21d6/4e0c807c15344e269f0e080517acdf49.glb"
+    }
+  },
+  {
+    "model": "store.product3dfile",
+    "pk": 3,
+    "fields": {
+      "product": 15,
+      "file": "products/26e1d17c-2047-4385-9f44-da346a424789/0e93f16e581b412c91a12837ee2d8bff.glb"
+    }
+  },
+  {
+    "model": "store.product3dfile",
+    "pk": 4,
+    "fields": {
+      "product": 16,
+      "file": "products/159def0f-05b3-4edf-8d4d-f12629705ebd/af9107b985594f21805ad0fa22491f0d.glb"
+    }
+  },
+  {
+    "model": "store.product3dfile",
+    "pk": 5,
+    "fields": {
+      "product": 17,
+      "file": "products/110c68c1-e3c6-466d-9e57-bdfe38ce7ae1/5b74466efd7e49a4804bc0ee8ccb8b76.glb"
+    }
+  },
+  {
+    "model": "store.product3dfile",
+    "pk": 6,
+    "fields": {
+      "product": null,
+      "file": "products/0df6710c-4351-41af-a03e-6b41e66b8e18/90c026106a304835a0e96341be73b622.glb"
+    }
+  },
+  {
+    "model": "store.product3dfile",
+    "pk": 7,
+    "fields": {
+      "product": 19,
+      "file": "products/82b3db4f-566c-45e1-a0cd-11b499d65b38/c4f0d0b79f05474d97d68f04dfa17938.glb"
+    }
+  },
+  {
+    "model": "store.product3dfile",
+    "pk": 8,
+    "fields": {
+      "product": 20,
+      "file": "products/e0b92e92-e36c-42a6-87ae-30a85e31ea57/abbcac1065414baab93902bb5068624d.glb"
+    }
+  },
+  {
+    "model": "store.product3dfile",
+    "pk": 9,
+    "fields": {
+      "product": 21,
+      "file": "products/880294d4-43bf-4a3b-9375-96048bda13e0/9a99d51573084add9eef424beb5f585b.glb"
+    }
+  },
+  {
+    "model": "store.product3dfile",
+    "pk": 10,
+    "fields": {
+      "product": null,
+      "file": "products/630e709a-2c74-41e6-979b-cf125392382c/1b77c0e812de4a64b2cdac368300b8b2.glb"
+    }
+  },
+  {
+    "model": "store.product3dfile",
+    "pk": 11,
+    "fields": {
+      "product": null,
+      "file": "products/d7d14d9a-a8bb-4c40-831d-dac05b2a1a50/2b51054e2c184db7a46719d6898b836f.glb"
+    }
+  },
+  {
+    "model": "store.product3dfile",
+    "pk": 12,
+    "fields": {
+      "product": null,
+      "file": "products/4fd1b5b4-c05e-4bc2-87b1-f843a4e1ff84/8a03475de0a341cb9706c2d4635af51a.glb"
+    }
+  },
+  {
+    "model": "store.product3dfile",
+    "pk": 13,
+    "fields": {
+      "product": 25,
+      "file": "products/7fe853d4-bb52-4feb-aae8-d28435cbd557/115524eb6184460eb2b6d5a205bd455a.glb"
+    }
+  },
+  {
+    "model": "store.product3dfile",
+    "pk": 14,
+    "fields": {
+      "product": null,
+      "file": "products/21323a5a-0557-45f6-9334-61c07cf27ff4/e2e34af0a3f3423f90aea6efbfa2479b.glb"
+    }
+  },
+  {
+    "model": "store.product3dfile",
+    "pk": 15,
+    "fields": {
+      "product": null,
+      "file": "products/3818d29d-b341-429b-bdb9-ea50f50e6073/750c95cb45fd4af4b3645799924ad445.glb"
+    }
+  },
+  {
+    "model": "store.product3dfile",
+    "pk": 16,
+    "fields": {
+      "product": 28,
+      "file": "products/ae637c12-57ba-4a10-b19d-8052c2c7a23f/35523685015d44cbb0af1ea0380d7527.glb"
+    }
+  },
+  {
+    "model": "store.product3dfile",
+    "pk": 17,
+    "fields": {
+      "product": 29,
+      "file": "products/85ff675f-4bef-4152-ba25-ecbcc5aa0d46/6a9f933d7d534b83bbfb86b82d4ef93c.glb"
+    }
+  }
+]

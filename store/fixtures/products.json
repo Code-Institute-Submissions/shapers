@@ -6,7 +6,7 @@
       "name": "Captain Marvel",
       "sku": "99141012-5388-478b-8c34-84080eae1adf",
       "category": 7,
-      "description": "Captain marvel chiby version",
+      "description": "Captain marvel POP version. She is cute and her powers are not diminished at all ! \r\nThe POP design is becoming more popular every day. Watch for new additions. \r\n\r\nApprox size: height: 8cm, width: 4cm, depth: 4cm.",
       "date_version": "2020-08-10",
       "base_price": "20.50",
       "image": "products/99141012-5388-478b-8c34-84080eae1adf/image_01.jpg"
@@ -19,7 +19,7 @@
       "name": "Nebula",
       "sku": "37092b6c-7557-4a73-a9e8-86da5882a4b4",
       "category": 7,
-      "description": "Chiby version",
+      "description": "POP version of Nebula. She doesn't look that angry does she ? The POP designs are becoming more popular everyday. Watch for new additions in this range. \r\n\r\nApprox size: height: 8cm, width: 4cm, depth: 4cm",
       "date_version": "2020-08-09",
       "base_price": "20.49",
       "image": "products/37092b6c-7557-4a73-a9e8-86da5882a4b4/image_01.jpg"
@@ -32,7 +32,7 @@
       "name": "Troll",
       "sku": "b04c6371-c842-4e80-80a9-b5254efa0307",
       "category": 10,
-      "description": "From World of Warcraft",
+      "description": "This high definition Jungle Troll from World of Warcraft will make any of your friends jealous !\r\n\r\nThe Author asked for high resolution resin prints for you to get all the subtle details of his work.\r\n\r\nApprox size: height: 8cm, depth: 8cm, width: 8cm,",
       "date_version": "2020-08-09",
       "base_price": "25.99",
       "image": "products/b04c6371-c842-4e80-80a9-b5254efa0307/image_01.jpg"
@@ -45,7 +45,7 @@
       "name": "Angel",
       "sku": "fbf069c4-476a-4e0a-a7c4-d3917893156b",
       "category": 8,
-      "description": "Cute angel",
+      "description": "This cute angel statue imitation is very high resolution and very convincing to the eye.\r\n\r\nApprox size: height: 8cm, depth: 5cm, width: 5cm.",
       "date_version": "2020-08-09",
       "base_price": "12.99",
       "image": "products/fbf069c4-476a-4e0a-a7c4-d3917893156b/image_01.jpg"
@@ -58,7 +58,7 @@
       "name": "Ganesh",
       "sku": "f2cfd1bb-5f4a-40e5-88f5-29fa4b09d2ad",
       "category": 8,
-      "description": "Lovely ganesh copper effect with brush finish",
+      "description": "Lovely Ganesh printed in copper material. We do add a brush finish to achieve this realistic look.\r\n\r\nApprox size: height: 10cm, depth: 7cm, width: 10cm",
       "date_version": "2020-08-09",
       "base_price": "22.50",
       "image": "products/f2cfd1bb-5f4a-40e5-88f5-29fa4b09d2ad/image_01.png"
@@ -66,25 +66,12 @@
   },
   {
     "model": "store.product",
-    "pk": 6,
-    "fields": {
-      "name": "Dinosaure",
-      "sku": "25494ca0-98d6-4153-85f8-ad08e24cf3e4",
-      "category": 11,
-      "description": "Cute dinausaure pokemon design",
-      "date_version": "2020-08-07",
-      "base_price": "8.90",
-      "image": "products/25494ca0-98d6-4153-85f8-ad08e24cf3e4/image_01.jpg"
-    }
-  },
-  {
-    "model": "store.product",
     "pk": 7,
     "fields": {
-      "name": "barbarian King",
+      "name": "Barbarian King",
       "sku": "3e8d134e-dcb1-4b6b-bf00-335e08a8a7a6",
       "category": 10,
-      "description": "All hail the King !!!",
+      "description": "All hail the King !!! If you are a fan of Clash of the Clans, this is a promising starting point. Our partner is dedicated to add the whole range by the end of the year !\r\n\r\nApprox size: height: 8cm, depth: 5cm, width: 7cm",
       "date_version": "2020-08-10",
       "base_price": "14.50",
       "image": "products/3e8d134e-dcb1-4b6b-bf00-335e08a8a7a6/image_01.jpg"
@@ -97,7 +84,7 @@
       "name": "EVA 02",
       "sku": "5f507a34-b547-457e-9867-15c787e7f0a2",
       "category": 11,
-      "description": "EVA 02 !",
+      "description": "High resolution Production model EVA 02.\r\n\r\nThe author recommends resin prints. We ensure it reproduces perfectly every detail the author has put into it.\r\n\r\nApprox size: height: 12cm, depth: 3cm, width: 5cm",
       "date_version": "2020-08-10",
       "base_price": "25.00",
       "image": "products/5f507a34-b547-457e-9867-15c787e7f0a2/image_01.jpg"
@@ -110,7 +97,7 @@
       "name": "Captain America",
       "sku": "aa99ca39-4e57-40df-9152-7a06efa707b0",
       "category": 7,
-      "description": "A very muscular captain america in action !",
+      "description": "A very muscular Captain America in action ! He's about to throw his Vibranium Frisbee !\r\n\r\nApprox size: height: 8cm, depth: 8cm, width: 5cm.",
       "date_version": "2020-08-11",
       "base_price": "22.50",
       "image": "products/aa99ca39-4e57-40df-9152-7a06efa707b0/image_01.jpg"
@@ -123,7 +110,7 @@
       "name": "Bastion",
       "sku": "7b86d7f3-c496-46ba-bb2c-9e26ec264535",
       "category": 10,
-      "description": "Overwatch Bastion with his bird of course !",
+      "description": "Overwatch Bastion with his bird of course ! This pop version is very popular.\r\n\r\nApprox size: height: 12cm, depth: 3cm, width: 5cm",
       "date_version": "2020-08-09",
       "base_price": "18.90",
       "image": "products/7b86d7f3-c496-46ba-bb2c-9e26ec264535/image_01.jpg"
@@ -133,13 +120,143 @@
     "model": "store.product",
     "pk": 12,
     "fields": {
-      "name": "torso",
+      "name": "Torso",
       "sku": "4def2f00-8cc2-4f9f-a06c-b92214099dbb",
       "category": 9,
-      "description": "Torso antique style that fits well on a garden's balcony.",
+      "description": "Torso antique style that fits almost anywhere. From your garden balcony to your office reception desk.\r\n\r\nApprox size: height: 16cm, depth: 6cm, width: 8cm",
       "date_version": "2020-08-10",
       "base_price": "18.50",
       "image": "products/4def2f00-8cc2-4f9f-a06c-b92214099dbb/image_01.jpg"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 14,
+    "fields": {
+      "name": "Low poly design Astronaut",
+      "sku": "53d8832a-21ab-4159-96a4-ebfda0be21d6",
+      "category": 15,
+      "description": "The heart of our space low-poly range ! Start your space expedition with the Astronaut !\r\n\r\nApprox Size: height: 12cm, depth: 3cm, width: 5cm",
+      "date_version": "2020-08-30",
+      "base_price": "4.20",
+      "image": "products/53d8832a-21ab-4159-96a4-ebfda0be21d6/image_01.jpg"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 15,
+    "fields": {
+      "name": "Low Poly Ferret",
+      "sku": "26e1d17c-2047-4385-9f44-da346a424789",
+      "category": 15,
+      "description": "Lovely miniature ferret from our Poly range.\r\n\r\nFits nicely on a desk or in your kids bedroom.\r\n\r\nApprox size: height: 8cm, depth: 8cm, width: 2cm",
+      "date_version": "2020-08-30",
+      "base_price": "1.50",
+      "image": "products/26e1d17c-2047-4385-9f44-da346a424789/image_01_LRJXFIk.jpg"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 16,
+    "fields": {
+      "name": "Low Poly Moon",
+      "sku": "159def0f-05b3-4edf-8d4d-f12629705ebd",
+      "category": 15,
+      "description": "If you ever wanted to see what's on the other side of the moon, here's your chance ! While our space low poly range is brand-new, we already want this one in photo-luminescence material.\r\n\r\nApprox size : height: 6cm, depth 6cm, width: 6cm",
+      "date_version": "2020-08-30",
+      "base_price": "4.55",
+      "image": "products/159def0f-05b3-4edf-8d4d-f12629705ebd/image_01.jpg"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 17,
+    "fields": {
+      "name": "Elephant",
+      "sku": "110c68c1-e3c6-466d-9e57-bdfe38ce7ae1",
+      "category": 15,
+      "description": "The low-poly range now includes animals ! We start with the elephant, symbol of wisdom, you might want to keep it in sight. No stampede, this one is ultra lightweight.\r\n\r\nApprox size:\r\nHeight: 9cm\r\nWidth: 8cm\r\nDepth: 10cm",
+      "date_version": "2020-08-30",
+      "base_price": "4.50",
+      "image": "products/110c68c1-e3c6-466d-9e57-bdfe38ce7ae1/image_01.jpg"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 19,
+    "fields": {
+      "name": "Pagoda",
+      "sku": "82b3db4f-566c-45e1-a0cd-11b499d65b38",
+      "category": 15,
+      "description": "This lovely pagoda just made it into our 'miniature' range.\r\n\r\nApprox size: height: 13cm, width, 3cm, depth: 3cm.",
+      "date_version": "2020-08-30",
+      "base_price": "5.00",
+      "image": "products/82b3db4f-566c-45e1-a0cd-11b499d65b38/image_01.jpg"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 20,
+    "fields": {
+      "name": "Flying Saucer",
+      "sku": "e0b92e92-e36c-42a6-87ae-30a85e31ea57",
+      "category": 15,
+      "description": "Flying saucer from outer space !!! \r\n\r\nAn exquisite product from our Poly range. You can use it as a Frisbee but we don't recommend it.\r\n\r\nApprox size: height: 5cm, width: 13cm, depth: 13cm.",
+      "date_version": "2020-08-30",
+      "base_price": "2.50",
+      "image": "products/e0b92e92-e36c-42a6-87ae-30a85e31ea57/image_01.jpg"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 21,
+    "fields": {
+      "name": "Poly island",
+      "sku": "880294d4-43bf-4a3b-9375-96048bda13e0",
+      "category": 15,
+      "description": "Our low-poly range brings you that desert island you have been dreaming of. It's a bit small but at least it'll never be overcrowded !\r\n\r\nApprox size: height: 8cm, width: 12cm, depth: 12cm",
+      "date_version": "2020-08-30",
+      "base_price": "6.00",
+      "image": "products/880294d4-43bf-4a3b-9375-96048bda13e0/image_01.jpg"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 25,
+    "fields": {
+      "name": "volcano",
+      "sku": "7fe853d4-bb52-4feb-aae8-d28435cbd557",
+      "category": 15,
+      "description": "Our beautiful low Poly range adds this volcano with its lava flow. Whether you want it for your desk or in your lounge next to that bottle or rum from the Caribbean. One might just use it as prop for board games...\r\nReally up to you ...\r\n\r\nApprox size: height: 10cm, width: 8cm, depth: 10cm",
+      "date_version": "2020-08-30",
+      "base_price": "6.00",
+      "image": "products/7fe853d4-bb52-4feb-aae8-d28435cbd557/image_01.jpg"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 28,
+    "fields": {
+      "name": "Robot",
+      "sku": "ae637c12-57ba-4a10-b19d-8052c2c7a23f",
+      "category": 15,
+      "description": "Our favorite from the space Poly range !\r\nThis cute little robot fits everywhere in any collection of yours.\r\n\r\nApprox size:\r\nHeight: 10cm\r\nWidth: 7cm\r\nDepth: 7cm",
+      "date_version": "2020-08-31",
+      "base_price": "4.95",
+      "image": "products/ae637c12-57ba-4a10-b19d-8052c2c7a23f/image_01.jpg"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 29,
+    "fields": {
+      "name": "Low poly satelite",
+      "sku": "85ff675f-4bef-4152-ba25-ecbcc5aa0d46",
+      "category": 15,
+      "description": "Why won't you add this satellite to your collection ? Have it stand on your desk or suspend it on a string. We have more coming and you can then conquer space.\r\n\r\nApprox size:\r\nHeight: 7cm\r\nWidth: 14cm\r\nDepth: 4cm",
+      "date_version": "2020-08-31",
+      "base_price": "4.25",
+      "image": "products/85ff675f-4bef-4152-ba25-ecbcc5aa0d46/image_01.jpg"
     }
   }
 ]
