@@ -67,14 +67,15 @@
         {% if product.images.all.count %}
           <div class="row mx-auto tbn-list">
             {% if product.printing_file %}
-              <img class="col-3 col-lg-2 product-tbn" src="{{ product.image.url }}" alt="{{ product.image.name }}"
-                   height="80px" width="80px">
-              <div class="d-flex justify-content-center col-3 col-lg-2 product-tbn product-tbn-3d">
-                <i class="fas fa-cubes fa-3x align-self-center"></i>
-              </div>
-            {% endif %}
+            <div class="d-flex justify-content-center col-3 col-lg-2 product-tbn product-tbn-3d">
+              <i class="fas fa-cubes fa-3x align-self-center"></i>
+            </div>
             <img class="col-3 col-lg-2 product-tbn" src="{{ product.image.url }}" alt="{{ product.image.name }}"
                  height="80px" width="80px">
+            {% else %}
+            <img class="col-3 col-lg-2 product-tbn" src="{{ product.image.url }}" alt="{{ product.image.name }}"
+                 height="80px" width="80px">
+            {% endif %}
             {% for img in product.images.all %}
               <img class="col-3 col-lg-2 product-tbn" src="{{ img.image.url }}" alt="{{ img.image_name }}" height="80px"
                    width="80px">
