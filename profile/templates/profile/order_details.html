@@ -166,7 +166,7 @@
                 </div>
 
                 <div class="d-inline-flex justify-content-between align-items-baseline">
-                  <span class="text-muted small">Products price :</span>
+                  <span class="text-muted small">Product{{ lineproduct.quantity|pluralize }} price :</span>
                   <span>{{ lineproduct.product.base_price | multiply:lineproduct.quantity }} €</span>
                 </div>
               </div>

@@ -5,7 +5,7 @@
 
     <ul class="navbar-nav ml-auto d-flex flex-row">
       <li class="nav-item mx-2">
-        <a href="{% url 'get_cart' %}">{% if cart_count %}{{ cart_count }} | {{ cart_total }}€{% endif %}<i class="ml-2 fa fa-shopping-cart" aria-hidden="true"></i></a>
+        <a href="{% url 'get_cart' %}">{% if cart_count %}{{ cart_total }}€{% endif %}<i class="ml-2 fa fa-shopping-cart" aria-hidden="true"></i></a>
       </li>
       <li class="nav-item ml-2 dropdown">
         <a id="signinDropDownLink" class="dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true"
